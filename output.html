@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Encrypt & Decrypt Text with AES / DES</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
+      padding: 40px;
+      color: white;
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #56ccf2, #2f80ed);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      text-align: center; /* ✅ Center everything */
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"], textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-right: 10px;
+      margin-bottom: 20px;
+    }
+
+    .encrypt-btn { background: #28a745; color: white; }
+    .decrypt-btn { background: #28a745; color: white; }
+    .home-btn { background: #007bff; color: white; }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .output textarea {
+      background: #feffff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Encrypt & Decrypt Text with AES / DES</h1>
+
+  <label for="algorithm">Choose Algorithm:</label>
+  <select id="algorithm">
+    <option value="AES">AES</option>
+    <option value="DES">DES</option>
+  </select>
+
+  <label for="secretKey">Secret Key:</label>
+  <input type="text" id="secretKey" placeholder="Enter secret key (do not share)">
+
+  <label for="plaintext">Plaintext:</label>
+  <textarea id="plaintext" rows="4" placeholder="Type your plaintext here"></textarea>
+
+  
+
+  <div class="output">
+    <label for="ciphertext">Ciphertext (Base64 encoded):</label>
+    <textarea id="ciphertext" rows="4" readonly></textarea>
+  </div>
+
+  <div class="output">
+    <label for="decryptedText">Decrypted Text:</label>
+    <textarea id="decryptedText" rows="4" readonly></textarea>
+  </div>
+
+    <button type="button" class="encrypt-btn" onclick="encryptText()">Encrypt</button>
+  <button type="button" class="decrypt-btn" onclick="decryptText()">Decrypt</button>
+  <button type="button" class="home-btn" onclick="window.location.href='index.html'">Back to Intro / Home</button>
+  <script>
+    function encryptText() {
+      const plaintext = document.getElementById('plaintext').value;
+      const key = document.getElementById('secretKey').value;
+      if (!plaintext || !key) {
+        alert('Please enter both plaintext and secret key.');
+        return;
+      }
+      const encoded = btoa(plaintext.split('').reverse().join(''));
+      document.getElementById('ciphertext').value = encoded;
+      document.getElementById('decryptedText').value = '';
+    }
+
+    function decryptText() {
+      const ciphertext = document.getElementById('ciphertext').value;
+      const key = document.getElementById('secretKey').value;
+      if (!ciphertext || !key) {
+        alert('Please enter ciphertext and secret key.');
+        return;
+      }
+      const decoded = atob(ciphertext).split('').reverse().join('');
+      document.getElementById('decryptedText').value = decoded;
+    }
+
+  </script>
+</body>
+</html>
