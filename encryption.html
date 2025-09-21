@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AES Algorithm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
+      padding: 40px;
+      color: white;
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #56ccf2, #2f80ed);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      text-align: center; /* Center everything */
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto 20px auto; /* Center paragraph block */
+    }
+
+    img {
+      display: block;
+      margin: 20px auto; /* Center image */
+      max-width: 80%; /* Responsive */
+      height: auto;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Encryption</h1>
+
+  <p>Encryption is the process of converting plain text (readable data) into cipher text (unreadable data) so that unauthorized people cannot understand it.
+  Symmetric encryption means the same key is used for both encryption and decryption.
+  AES works on blocks of data (typically 128 bits per block).
+  Key sizes can be 128, 192, or 256 bits, which determines the strength of encryption.<br><br>
+
+  <b>Steps of Encryption</b><br>
+
+  Key Expansion: The original key is expanded into multiple round keys.<br>
+  Initial Round: AddRoundKey: Each block of plaintext is combined with a portion of the key.<br>
+  Main Rounds (10, 12, or 14 depending on key size):<br>
+  SubBytes: Each byte is substituted using a substitution box (S-box).<br>
+  ShiftRows: Rows of the block are shifted cyclically.<br>
+  MixColumns: Columns of the block are mixed (mathematical transformation).<br>
+  AddRoundKey: Round key is added again.<br>
+  Final Round (no MixColumns): SubBytes → ShiftRows → AddRoundKey<br>
+  Output: The final cipher text is produced.
+</p>
+  <img src="https://www.siakabaro.com/wp-content/uploads/2022/03/AES-Algorithm-Encryption-945x1038.png" alt="AES Diagram" height="300px" width="300px">
+
+  <button onclick="window.location.href='3 Page.html'">
+  Go to Decryption
+  </button>
+</body>
+</html>
