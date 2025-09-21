@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AES Algorithm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
+      padding: 40px;
+      color: white;
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #56ccf2, #2f80ed);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      text-align: center; /* ✅ Center everything */
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto 30px auto; /* Center paragraph block */
+      text-align: center;       /* ✅ Center text inside paragraph */
+    }
+    button {
+      display: block;
+      margin: 0 auto;
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1> Decryption</h1>
+  <p>Decryption is the reverse process where cipher text is converted back to plain text using the same key.<br><br>
+<b>Steps in AES Decryption</b><br>
+
+1.Input Ciphertext – Encrypted text comes as input.<br>
+
+2.Initial Round<br>
+
+AddRoundKey
+
+3.Main Rounds (Nr – 1 times)<br>
+
+Inverse ShiftRows
+
+Inverse SubBytes (uses inverse S-box)
+
+AddRoundKey
+
+Inverse MixColumns<br>
+
+ 4.Final Round 
+
+Inverse ShiftRows
+
+Inverse SubBytes
+
+AddRoundKey<br>
+
+Output Plaintext – The original readable text is recovered.<br>
+
+InvShiftRows → InvSubBytes → AddRoundKey (without InvMixColumns).<br>
+</p><br>
+<img src="https://tse1.mm.bing.net/th/id/OIP.nJoWRwhgTJmGQuFR723gfwHaHy?pid=Api&P=0&h=180"
+     alt="AES Diagram" class="center-img" height="300px" width="300px"><br><br>
+  <button onclick="window.location.href='End Page.html'">Click here to see the encryption and decryption process</button>
+</body>
+</html>
