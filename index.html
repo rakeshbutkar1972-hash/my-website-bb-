@@ -7,8 +7,18 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
+      margin: 0;
+      padding: 40px;
+      color: white;
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #56ccf2, #2f80ed);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
     }
     h1 {
       color: #333;
